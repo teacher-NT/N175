@@ -10,8 +10,8 @@ car1 = {
     3:4,
     
 }
-car1['narxi'] = 20_000
 
-print(car1)
-car1["model"] = 'Malibu'
-print(car1["model"])
+if "brand" in car1:
+    print('Yes')
+else:
+    print("No")
