@@ -1,10 +1,19 @@
 import os
 os.system("cls")
 
-def func1(a,b):
-    return a+b
+# sonlar = [12,3,4,15,3,5,44,2,4,8,67]
 
-func2 = lambda a,b:a+b
+# def func(n):
+#     return n<5
 
-print(func1(3,4))
-print(func2(3,4))
+# result = list(filter(func, sonlar))
+
+# print(result)
+
+
+yoshlar = [12,19,18,20,14]
+def func(n):
+    return n+1
+
+result = list(map(func, yoshlar))
+print(result)
