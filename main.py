@@ -1,10 +1,10 @@
 import os
 os.system("cls")
 
-def func(*n):
-    print(n)
+def func1(a,b):
+    return a+b
 
-func("Ali", "Vali", 'Hasan')
+func2 = lambda a,b:a+b
 
-# for i in range(10, 30, 2):
-#     print(i)
+print(func1(3,4))
+print(func2(3,4))
