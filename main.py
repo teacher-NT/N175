@@ -1,18 +1,10 @@
 import os
 os.system("cls")
 
-def func(n) -> int:
-    s = 0
-    k = 1
-    for i in range(1, n+1):
-        s += i
-        k *= i
-    return s, k
-    
+def func(*n):
+    print(n)
 
-def salom_ber(n:int):
-    for i in range(n):
-        print("Hello world")
+func("Ali", "Vali", 'Hasan')
 
-a,b = func(5)
-print(a,b)
+# for i in range(10, 30, 2):
+#     print(i)
