@@ -1,11 +1,22 @@
 import os
 os.system("cls")
 
-import requests as rq
+class A:
+    def func(self):
+        print("A")
 
-url = 'https://cbu.uz/uz/arkhiv-kursov-valyut/json/'
+class B(A):
+    def func(self):
+        print("B")
 
-data = rq.get(url).json()
+class C(B, A):
+    pass
 
-print(data[0])
-print("salom")
+class D(C, A):
+    pass
+
+class E(D, A):
+    pass
+
+e1 =  E()
+e1.func()
