@@ -1,7 +1,7 @@
 import os
 os.system("cls")
 
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QLineEdit
 from PyQt5.QtGui import QFont
 font1 = QFont("Arial", 30)
 
@@ -19,9 +19,17 @@ label.setFixedWidth(920)
 label.move(50, 50)
 label.setStyleSheet("color: white;")
 
+
+
+edit = QLineEdit(window)
+edit.setGeometry(100,150, 200,50)
+edit.setPlaceholderText("🔍Qidirish...")
+edit.setStyleSheet("background-color: white; font-size:20px;")
+
 def func1():
     global label
-    label.setText("Samandar darsda uhlab qoldi")
+    n = edit.text()
+    label.setText(f"Salom {n}")
 
 btn1 = QPushButton(window)
 btn1.setText("Press me!")
