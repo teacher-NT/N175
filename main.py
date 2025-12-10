@@ -13,6 +13,7 @@ class MyWindow(QWidget):
     def __init__(self):
         super().__init__()
         self.Vlayout = QVBoxLayout()
+        self.Hlayout = QHBoxLayout()
         self.setWindowTitle("My Windows")
         self.setStyleSheet("background-color: grey;")
         label = QLabel()
@@ -29,15 +30,14 @@ class MyWindow(QWidget):
         self.drink_label.setStyleSheet(style1)
         self.Vlayout.addWidget(self.drink_label)
 
+        self.add_checkbox()
+        self.Vlayout.addLayout(self.Hlayout)
+        
         btn2 = QPushButton()
-        btn2.setText("Tanlash")
+        btn2.setText("Ovqat tanlash")
         btn2.setStyleSheet("background-color: yellow;")
         btn2.clicked.connect(self.show_choice)
         self.Vlayout.addWidget(btn2)
-
-        self.add_checkbox()
-        
-        
 
         btn3 = QPushButton()
         btn3.setText("Ichimlik tanlash")
@@ -69,7 +69,7 @@ class MyWindow(QWidget):
         # self.menyu.addItem("Qozonkabob")
         # self.menyu.addItem("Sho'rva")
         self.menyu.addItems(['Shashlik', 'Manti', 'Palov', 'Halim', 'Norin'])
-        self.Vlayout.addWidget(self.menyu)
+        self.Hlayout.addWidget(self.menyu)
 
     def show_choice(self):
         curr = self.menyu.currentText()
@@ -82,12 +82,12 @@ class MyWindow(QWidget):
         self.check4 = QCheckBox("Coffee")
         self.check5 = QCheckBox("Cola")
         self.check6 = QCheckBox("Fanta")
-        self.Vlayout.addWidget(self.check1)
-        self.Vlayout.addWidget(self.check2)
-        self.Vlayout.addWidget(self.check3)
-        self.Vlayout.addWidget(self.check4)
-        self.Vlayout.addWidget(self.check5)
-        self.Vlayout.addWidget(self.check6)
+        self.Hlayout.addWidget(self.check1)
+        self.Hlayout.addWidget(self.check2)
+        self.Hlayout.addWidget(self.check3)
+        self.Hlayout.addWidget(self.check4)
+        self.Hlayout.addWidget(self.check5)
+        self.Hlayout.addWidget(self.check6)
 
     def show_drinks(self):
         self.res = ""
