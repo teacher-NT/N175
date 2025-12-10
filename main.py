@@ -4,7 +4,8 @@ from PyQt5.QtWidgets import (QApplication,
                              QWidget, QLabel, 
                              QPushButton,
                              QHBoxLayout, QVBoxLayout,
-                             QComboBox, QCheckBox)
+                             QComboBox, QCheckBox,
+                             QRadioButton, QMessageBox)
 
 style1 = "color: white;font-size: 18px;"
 
@@ -44,6 +45,12 @@ class MyWindow(QWidget):
         btn3.clicked.connect(self.show_drinks)
         self.Vlayout.addWidget(btn3)
         
+        self.show_radio()
+
+        btn4 = QPushButton("Buyurtma berish")
+        btn4.setStyleSheet("background-color: blue")
+        btn4.clicked.connect(self.buyurtma)
+        self.Vlayout.addWidget(btn4)
 
         self.setLayout(self.Vlayout)
 
@@ -83,21 +90,40 @@ class MyWindow(QWidget):
         self.Vlayout.addWidget(self.check6)
 
     def show_drinks(self):
-        res = ""
+        self.res = ""
         if self.check1.isChecked():
-            res += f"{self.check1.text()}, "
+            self.res += f"{self.check1.text()}, "
         if self.check2.isChecked():
-            res += f"{self.check2.text()}, "
+            self.res += f"{self.check2.text()}, "
         if self.check3.isChecked():
-            res += f"{self.check3.text()}, "
+            self.res += f"{self.check3.text()}, "
         if self.check4.isChecked():
-            res += f"{self.check4.text()}, "
+            self.res += f"{self.check4.text()}, "
         if self.check5.isChecked():
-            res += f"{self.check5.text()}, "
+            self.res += f"{self.check5.text()}, "
         if self.check6.isChecked():
-            res += f"{self.check6.text()}, "
-        self.drink_label.setText(f"Tanlangan ichimliklar: {res}")
+            self.res += f"{self.check6.text()}, "
+        self.drink_label.setText(f"Tanlangan ichimliklar: {self.res}")
         
+    def show_radio(self):
+        self.naqd = QRadioButton("Naqd")
+        self.terminal = QRadioButton("Terminal")
+        self.onlayn = QRadioButton("Onlayn")
+
+        self.Vlayout.addWidget(self.naqd)
+        self.Vlayout.addWidget(self.terminal)
+        self.Vlayout.addWidget(self.onlayn)
+    
+    def buyurtma(self):
+        pay = None
+        if self.naqd.isChecked():
+            pay = "Naqd"
+        elif self.terminal.isChecked():
+            pay = "Terminal"
+        elif self.onlayn.isChecked():
+            pay = "Onlayn"
+        QMessageBox.information(self,"Info", 
+                                f"Sizning buyurtmangiz\n{self.choice_label.text()}\nIchimliklar: {self.res}\nTo'lov: {pay}")
 app = QApplication([])
 win = MyWindow()
 app.exec_()
