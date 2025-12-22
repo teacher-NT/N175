@@ -17,18 +17,35 @@ cursor = mydb.cursor()
 # query = """SELECT * FROM people 
 #             WHERE FirstName LIKE 'A%';
 #         """
-first = input("Ism:")
-last = input("Familya:")
-gen = input("Jins:")
-email = input("Email:")
-phone = input("Phone:")
-birth = input("Birth day: ")
-job = input("Job: ")
-add = input("Address: ")
-query = f"""INSERT INTO people ( FirstName, LastName, Gender, Email, Phone, BirthDay, JobTitle, Address)
-            VALUES
-            ('{first}', '{last}', '{gen}', '{email}', '{phone}', '{birth}', '{job}', '{add}');
-        """
+
+# first = input("Ism:")
+# last = input("Familya:")
+# gen = input("Jins:")
+# email = input("Email:")
+# phone = input("Phone:")
+# birth = input("Birth day: ")
+# job = input("Job: ")
+# add = input("Address: ")
+# query = f"""INSERT INTO people ( FirstName, LastName, Gender, Email, Phone, BirthDay, JobTitle, Address)
+#             VALUES
+#             ('{first}', '{last}', '{gen}', '{email}', '{phone}', '{birth}', '{job}', '{add}');
+#         """
+# cursor.execute(query)
+# mydb.commit()
+
+
+
+
+
+
+
+
+
+
+query = """
+    UPDATE people SET `Index` = 102, Address='Qashqadaryo'
+    WHERE FirstName = 'Bekzod'; 
+"""
 cursor.execute(query)
 mydb.commit()
 
